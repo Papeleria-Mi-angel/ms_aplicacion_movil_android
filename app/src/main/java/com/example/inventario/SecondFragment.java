@@ -63,20 +63,21 @@ public class SecondFragment extends Fragment {
                 .build();
 
         Interapi apiService = retrofit.create(Interapi.class);
-        Call<List<Dataclass>> call = apiService.getproducto();
+        Call<ProductoResponse> call = apiService.getproducto();
 
-        call.enqueue(new Callback<List<Dataclass>>() {
+        call.enqueue(new Callback<ProductoResponse>() {
             @Override
-            public void onResponse(Call<List<Dataclass>> call, Response<List<Dataclass>> response) {
+            public void onResponse(Call<ProductoResponse> call, Response<ProductoResponse> response) {
                 if (response.isSuccessful()) {
-                    List<Dataclass> orders = response.body();
-                    if (orders != null) {
+                    ProductoResponse productoResponse = response.body();
+                    if (productoResponse != null && productoResponse.getProductos() != null) {
+                        List<Dataclass> productos = productoResponse.getProductos();
                         orderList.clear();
-                        orderList.addAll(orders);
+                        orderList.addAll(productos);
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getContext(), "Pedidos cargados con éxito", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Productos cargados con éxito", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "No se recibieron pedidos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No se recibieron productos", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
@@ -84,7 +85,7 @@ public class SecondFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Dataclass>> call, Throwable t) {
+            public void onFailure(Call<ProductoResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

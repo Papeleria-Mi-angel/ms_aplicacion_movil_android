@@ -9,5 +9,5 @@ import retrofit2.http.Headers;
 public interface Interapi {
     @Headers("Content-Type: application/json")
     @GET("producto")
-    Call<List<Dataclass>> getproducto();
+    Call<ProductoResponse> getproducto();
 }

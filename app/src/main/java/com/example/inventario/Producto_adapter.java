@@ -64,14 +64,14 @@ public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.Orde
             precio = itemView.findViewById(R.id.precio);
         }
 
-        public void bind(final Dataclass order, final OnItemClickListener listener) {
-            Glide.with(itemView.getContext()).load(order.getFoto()).into(foto);
-            nom_product.setText(order.getNom_product());
-            nom_cate.setText("Categoría: " + order.getNom_cate());
-            stock.setText("Unidades: " + order.getStock());
-            precio.setText("Precio: $" + order.getPrecio());
+        public void bind(final Dataclass product, final OnItemClickListener listener) {
+            Glide.with(itemView.getContext()).load(product.getImagen()).into(foto);
+            nom_product.setText(product.getNombreProducto());
+            nom_cate.setText("Categoría ID: " + product.getIdCategorias());
+            stock.setText("Unidades: " + product.getStock());
+            precio.setText("Precio: $" + product.getPrecio());
 
-            itemView.setOnClickListener(v -> listener.onItemClick(order));
+            itemView.setOnClickListener(v -> listener.onItemClick(product));
         }
     }
 }

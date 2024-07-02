@@ -3,40 +3,67 @@ package com.example.inventario;
 import com.google.gson.annotations.SerializedName;
 
 public class Dataclass {
-    @SerializedName("imagen")
-    private String foto;
-    @SerializedName("nombre_product")
-    private String nom_product;
+    @SerializedName("idProducto")
+    private int idProducto;
+
     @SerializedName("idCategorias")
-    private int nom_cate;
+    private int idCategorias;
+
+    @SerializedName("idProveedor")
+    private int idProveedor;
+
+    @SerializedName("nombre_product")
+    private String nombreProducto;
+
     @SerializedName("stock")
     private int stock;
+
+    @SerializedName("codigo_producto")
+    private long codigoProducto;
+
+    @SerializedName("imagen")
+    private String imagen;
+
     @SerializedName("precio")
     private int precio;
 
+    @SerializedName("fecha")
+    private String fecha;
+
+    @SerializedName("estado")
+    private String estado;
+
     // Getters and setters
-    public String getFoto() {
-        return foto;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public String getNom_product() {
-        return nom_product;
+    public int getIdCategorias() {
+        return idCategorias;
     }
 
-    public void setNom_product(String nom_product) {
-        this.nom_product = nom_product;
+    public void setIdCategorias(int idCategorias) {
+        this.idCategorias = idCategorias;
     }
 
-    public int getNom_cate() {
-        return nom_cate;
+    public int getIdProveedor() {
+        return idProveedor;
     }
 
-    public void setNom_cate(int nom_cate) {
-        this.nom_cate = nom_cate;
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
     public int getStock() {
@@ -47,11 +74,43 @@ public class Dataclass {
         this.stock = stock;
     }
 
+    public long getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public void setCodigoProducto(long codigoProducto) {
+        this.codigoProducto = codigoProducto;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public int getPrecio() {
         return precio;
     }
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
