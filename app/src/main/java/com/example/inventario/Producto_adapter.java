@@ -12,11 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.OrderViewHolder> {
+import android.widget.Filter;
+import android.widget.Filterable;
+
+public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.OrderViewHolder> implements Filterable {
     private Context context;
     private List<Dataclass> orders;
+    private List<Dataclass> ordersFiltered;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -26,7 +31,14 @@ public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.Orde
     public Producto_adapter(Context context, List<Dataclass> orders, OnItemClickListener listener) {
         this.context = context;
         this.orders = orders;
+        this.ordersFiltered = new ArrayList<>(orders);
         this.listener = listener;
+    }
+
+    public void updateData(List<Dataclass> newOrders) {
+        this.orders = newOrders;
+        this.ordersFiltered = new ArrayList<>(newOrders);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -38,13 +50,44 @@ public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.Orde
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-        Dataclass currentOrder = orders.get(position);
+        Dataclass currentOrder = ordersFiltered.get(position);
         holder.bind(currentOrder, listener);
     }
 
     @Override
     public int getItemCount() {
-        return orders.size();
+        return ordersFiltered.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String charString = constraint.toString();
+                if (charString.isEmpty()) {
+                    ordersFiltered = new ArrayList<>(orders);
+                } else {
+                    List<Dataclass> filteredList = new ArrayList<>();
+                    for (Dataclass row : orders) {
+                        if (row.getNombreProducto().toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(row);
+                        }
+                    }
+                    ordersFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = ordersFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                ordersFiltered = (ArrayList<Dataclass>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {

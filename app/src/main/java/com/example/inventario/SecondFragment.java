@@ -21,6 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import android.widget.SearchView;
 
 public class SecondFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -33,6 +34,7 @@ public class SecondFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 
         recyclerView = view.findViewById(R.id.view_resicle);
+        SearchView searchView = view.findViewById(R.id.searchView);
         orderList = new ArrayList<>();
         adapter = new Producto_adapter(getContext(), orderList, order -> {
             // Acción al hacer clic en un item
@@ -40,6 +42,19 @@ public class SecondFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
         producto();
 
@@ -74,7 +89,7 @@ public class SecondFragment extends Fragment {
                         List<Dataclass> productos = productoResponse.getProductos();
                         orderList.clear();
                         orderList.addAll(productos);
-                        adapter.notifyDataSetChanged();
+                        adapter.updateData(orderList);
                         Toast.makeText(getContext(), "Productos cargados con éxito", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "No se recibieron productos", Toast.LENGTH_SHORT).show();
