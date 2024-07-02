@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Papeleria</string>
+    <string name="bienvenido_a_gestion_de_inventario">¡Bienvenido a Gestion de Inventario!</string>
+    <string name="somos_tu_socio_confiable_en_la_gesti_n_de_tu_papeler_a_nuestra_plataforma_est_dise_ada_para_simplificar_y_optimizar_todo_el_proceso_desde_el_seguimiento_de_existencias_hasta_la_gesti_n_de_pedidos_descubre_c_mo_podemos_ayudarte_a_mantener_tu_inventario_organizado_tus_productos_siempre_disponibles_y_tu_negocio_en_crecimiento">Somos tu socio confiable en la gestión de tu papelería. Nuestra plataforma está diseñada para simplificar y optimizar todo el proceso, desde el seguimiento de existencias hasta la gestión de pedidos. Descubre cómo podemos ayudarte a mantener tu inventario organizado, tus productos siempre disponibles y tu negocio en crecimiento.</string>
+    <string name="todo">TODO</string>
+    <string name="button">Button</string>
+    <string name="producto">Producto</string>
+    <string name="productos">Productos</string>
+    <string name="categorias">Categorìas</string>
+    <string name="comprobar_existencias">Existencias</string>
+    <string name="informaci_n">Informaciòn</string>
+    <string name="ver_precios">Ver Precios</string>
+    <string name="visualizar_categor_as">Visualizar Categorías</string>
+    <string name="productos_agotados">Productos Agotados</string>
+    <string name="aca_es_donde_va_a_parecer_las_categorias_y_lo_de_filtrar">aca es donde va a parecer las categorias y lo de filtrar</string>
+    <string name="aca_se_coloca_la_informacion_de_todas_las_categorias_con_la_imagen">aca se coloca la informacion de todas las categorias con la imagen</string>
+    <string name="inicio">Inicio</string>
+    <string name="bienvenidos">Bienvenidos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Inicio</string>
+    <string name="agotado">Agotado</string>
+
+
+</resources>

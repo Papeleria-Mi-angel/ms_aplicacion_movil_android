@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inicios"
+    tools:context=".InicioFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/bienvenido_a_gestion_de_inventario"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="match_parent"
+        android:layout_height="633dp"
+        android:layout_marginTop="150dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="8dp"
+        android:text="@string/somos_tu_socio_confiable_en_la_gesti_n_de_tu_papeler_a_nuestra_plataforma_est_dise_ada_para_simplificar_y_optimizar_todo_el_proceso_desde_el_seguimiento_de_existencias_hasta_la_gesti_n_de_pedidos_descubre_c_mo_podemos_ayudarte_a_mantener_tu_inventario_organizado_tus_productos_siempre_disponibles_y_tu_negocio_en_crecimiento"
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
+
+</FrameLayout>
