@@ -1,6 +1,7 @@
 package com.example.inventario;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,17 +86,14 @@ public class ThirdFragment extends Fragment {
             public void onResponse(Call<ProductoResponse> call, Response<ProductoResponse> response) {
                 if (response.isSuccessful()) {
                     ProductoResponse productoResponse = response.body();
-                    if (productoResponse != null && productoResponse.getProductos() != null) {
+                    if (productoResponse != null && productoResponse.getProductos() != null && !productoResponse.getProductos().isEmpty()) {
                         List<Dataclass> productos = productoResponse.getProductos();
-                        orderList.clear();
-                        orderList.addAll(productos);
-                        adapter.updateData(orderList);
-                        Toast.makeText(getContext(), "Productos cargados con éxito", Toast.LENGTH_SHORT).show();
+                        updateRecyclerView(productos);
                     } else {
-                        Toast.makeText(getContext(), "No se recibieron productos", Toast.LENGTH_SHORT).show();
+                        Log.e("API_RESPONSE", "No se recibieron productos o la lista está vacía");
                     }
                 } else {
-                    Toast.makeText(getContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Log.e("API_RESPONSE", "Error: " + response.code() + " - " + response.message());
                 }
             }
 
@@ -104,5 +102,11 @@ public class ThirdFragment extends Fragment {
                 Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void updateRecyclerView(List<Dataclass> productos) {
+        orderList.clear();
+        orderList.addAll(productos);
+        adapter.updateData(orderList);
+        adapter.notifyDataSetChanged();
     }
 }

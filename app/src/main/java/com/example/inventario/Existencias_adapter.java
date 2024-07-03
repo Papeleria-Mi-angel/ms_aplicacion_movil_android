@@ -1,6 +1,7 @@
 package com.example.inventario;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,10 @@ public class Existencias_adapter extends RecyclerView.Adapter<Existencias_adapte
     public void updateData(List<Dataclass> newOrders) {
         this.orders = newOrders;
         this.ordersFiltered = new ArrayList<>(newOrders);
+        Log.d("ADAPTER", "Updating data. New size: " + newOrders.size());
+        for (Dataclass order : newOrders) {
+            Log.d("ADAPTER", "Product: " + order.getNombreProducto() + ", Stock: " + order.getStock());
+        }
         notifyDataSetChanged();
     }
 
@@ -106,14 +111,35 @@ public class Existencias_adapter extends RecyclerView.Adapter<Existencias_adapte
             estado = itemView.findViewById(R.id.estado);
         }
 
-        public void bind(final Dataclass existente, final OnItemClickListener listener) {
-            Glide.with(itemView.getContext()).load(existente.getImagen()).into(foto);
-            nom_product.setText(existente.getNombreProducto());
-            nom_cate.setText("Categoría ID: " + existente.getIdCategorias());
-            stock.setText("Unidades: " + existente.getStock());
-            estado.setText("estado: " + existente.getEstado());
+        public void bind(final Dataclass product, final OnItemClickListener listener) {
+            Log.d("Existencias_adapter", "Binding product: " + product.getNombreProducto());
+            Log.d("Existencias_adapter", "foto: " + (foto != null ? "not null" : "null"));
+            Log.d("Existencias_adapter", "nom_product: " + (nom_product != null ? "not null" : "null"));
+            Log.d("Existencias_adapter", "nom_cate: " + (nom_cate != null ? "not null" : "null"));
+            Log.d("Existencias_adapter", "stock: " + (stock != null ? "not null" : "null"));
+            Log.d("Existencias_adapter", "estado: " + (estado != null ? "not null" : "null"));
+            if (foto != null && product.getImagen() != null) {
+                Glide.with(itemView.getContext()).load(product.getImagen()).into(foto);
+            }
+            if (nom_product != null) {
+                nom_product.setText(product.getNombreProducto());
+            }
+            if (nom_cate != null) {
+                nom_cate.setText("Categoría ID: " + product.getIdCategorias());
+            }
+            if (stock != null) {
+                stock.setText("Unidades: " + product.getStock());
+            }
+            if (estado != null) {
+                estado.setText("Estado: " + product.getEstado());
+            }
 
-            itemView.setOnClickListener(v -> listener.onItemClick(existente));
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onItemClick(product);
+                }
+            });
         }
     }
+
 }
