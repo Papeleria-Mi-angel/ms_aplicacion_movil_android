@@ -25,7 +25,7 @@ import android.widget.SearchView;
 
 public class ThirdFragment extends Fragment {
     private RecyclerView recyclerView;
-    private Producto_adapter adapter;
+    private Existencias_adapter adapter;
     private List<Dataclass> orderList;
 
     @Override
@@ -36,7 +36,7 @@ public class ThirdFragment extends Fragment {
         recyclerView = view.findViewById(R.id.exist_resicle);
         SearchView searchView = view.findViewById(R.id.searchView);
         orderList = new ArrayList<>();
-        adapter = new Producto_adapter(getContext(), orderList, order -> {
+        adapter = new Existencias_adapter(getContext(), orderList, order -> {
             // Acción al hacer clic en un item
         });
 

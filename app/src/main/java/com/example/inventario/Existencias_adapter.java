@@ -106,14 +106,14 @@ public class Existencias_adapter extends RecyclerView.Adapter<Existencias_adapte
             estado = itemView.findViewById(R.id.estado);
         }
 
-        public void bind(final Dataclass product, final OnItemClickListener listener) {
-            Glide.with(itemView.getContext()).load(product.getImagen()).into(foto);
-            nom_product.setText(product.getNombreProducto());
-            nom_cate.setText("Categoría ID: " + product.getIdCategorias());
-            stock.setText("Unidades: " + product.getStock());
-            estado.setText("estado: " + product.getEstado());
+        public void bind(final Dataclass existente, final OnItemClickListener listener) {
+            Glide.with(itemView.getContext()).load(existente.getImagen()).into(foto);
+            nom_product.setText(existente.getNombreProducto());
+            nom_cate.setText("Categoría ID: " + existente.getIdCategorias());
+            stock.setText("Unidades: " + existente.getStock());
+            estado.setText("estado: " + existente.getEstado());
 
-            itemView.setOnClickListener(v -> listener.onItemClick(product));
+            itemView.setOnClickListener(v -> listener.onItemClick(existente));
         }
     }
 }
