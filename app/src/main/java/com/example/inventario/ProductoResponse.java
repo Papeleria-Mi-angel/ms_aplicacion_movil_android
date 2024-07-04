@@ -11,7 +11,6 @@ public class ProductoResponse {
     public List<Dataclass> getProductos() {
         return productos;
     }
-    public List<Dataclass> getProductosAgotados() { return  productos;}
 
     public void setProductos(List<Dataclass> productos) {
         this.productos = productos;

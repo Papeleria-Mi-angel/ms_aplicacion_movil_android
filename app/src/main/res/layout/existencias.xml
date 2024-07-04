@@ -9,7 +9,7 @@
     app:cardElevation="4dp"
     app:cardBackgroundColor="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green_light_2"
@@ -61,10 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:background="@drawable/boton_bkg"
             app:layout_constraintStart_toStartOf="@id/nom_product"
             app:layout_constraintTop_toBottomOf="@id/stock"
             android:layout_marginTop="4dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

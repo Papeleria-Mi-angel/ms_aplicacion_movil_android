@@ -125,7 +125,7 @@ public class Existencias_adapter extends RecyclerView.Adapter<Existencias_adapte
                 nom_product.setText(product.getNombreProducto());
             }
             if (nom_cate != null) {
-                nom_cate.setText("Categoría ID: " + product.getIdCategorias());
+                nom_cate.setText("Categoría: " + product.getCategoria());
             }
             if (stock != null) {
                 stock.setText("Unidades: " + product.getStock());

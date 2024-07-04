@@ -12,6 +12,6 @@ public interface Interapi {
     Call<ProductoResponse> getproducto();
 
     @Headers("Content-Type: application/json")
-    @GET("producto-agotado")
+    @GET("producto-ago")
     Call<ProductoResponse> getProductosAgotados();
 }

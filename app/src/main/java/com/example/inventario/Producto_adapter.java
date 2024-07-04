@@ -109,7 +109,7 @@ public class Producto_adapter extends RecyclerView.Adapter<Producto_adapter.Orde
         public void bind(final Dataclass product, final OnItemClickListener listener) {
             Glide.with(itemView.getContext()).load(product.getImagen()).into(foto);
             nom_product.setText(product.getNombreProducto());
-            nom_cate.setText("Categoría ID: " + product.getIdCategorias());
+            nom_cate.setText("Categoría: " + product.getCategoria());
             stock.setText("Unidades: " + product.getStock());
             precio.setText("Precio: $" + product.getPrecio());
 

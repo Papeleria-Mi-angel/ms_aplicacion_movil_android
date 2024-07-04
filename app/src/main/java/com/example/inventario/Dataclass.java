@@ -6,8 +6,8 @@ public class Dataclass {
     @SerializedName("idProducto")
     private int idProducto;
 
-    @SerializedName("idCategorias")
-    private int idCategorias;
+    @SerializedName("Categoria")
+    private String Categoria;
 
     @SerializedName("idProveedor")
     private int idProveedor;
@@ -42,12 +42,12 @@ public class Dataclass {
         this.idProducto = idProducto;
     }
 
-    public int getIdCategorias() {
-        return idCategorias;
+    public String getCategoria() {
+        return Categoria;
     }
 
-    public void setIdCategorias(int idCategorias) {
-        this.idCategorias = idCategorias;
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
     }
 
     public int getIdProveedor() {
@@ -100,7 +100,7 @@ public class Dataclass {
 
     public String getFecha() {
         return fecha;
-    }
+    }   
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
