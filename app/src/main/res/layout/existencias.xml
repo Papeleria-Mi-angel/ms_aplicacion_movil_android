@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -20,49 +20,45 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/nom_product"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"/>
 
         <TextView
             android:id="@+id/nom_product"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/foto"
+            android:layout_alignParentTop="true"
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#000"
-            app:layout_constraintStart_toEndOf="@id/foto"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"/>
 
         <TextView
             android:id="@+id/nom_cate"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/nom_product"
-            app:layout_constraintTop_toBottomOf="@id/nom_product"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_below="@id/nom_product"
+            android:layout_alignStart="@id/nom_product"
             android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/stock"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/nom_product"
-            app:layout_constraintTop_toBottomOf="@id/nom_cate"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_below="@id/nom_cate"
+            android:layout_alignStart="@id/nom_product"
             android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/estado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/stock"
+            android:layout_alignStart="@id/nom_product"
             android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="@id/nom_product"
-            app:layout_constraintTop_toBottomOf="@id/stock"
             android:layout_marginTop="4dp"/>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".Categoria_Producto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,48 +23,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/buscar_bkg"
+            android:orientation="horizontal"
             android:padding="16dp"
+            android:background="@drawable/buscar_bkg"
+            android:backgroundTint="@color/green_normal"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/green_light_2"
             android:layout_marginBottom="16dp">
 
             <ImageView
-                android:id="@+id/img_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/existencias"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:contentDescription="Imagen de carpetas, cuadernos y libretas"/>
 
             <TextView
-                android:id="@+id/nom_cate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Carpetas, Cuadernos y Libretas"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp"/>
-
-            <TextView
-                android:id="@+id/info_cate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Una amplia variedad de carpetas, cuadernos, libretas y bloques de notas en diferentes tamaños y diseños. Perfectos para estudiantes, profesionales y creativos."
-                android:gravity="center"
-                android:padding="8dp"/>
-
-            <Button
-                android:id="@+id/Ver_Productos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ver Productos"
-                android:layout_gravity="center"
+                android:text="Carpetas, Cuadernos y Libretas"
+                android:layout_marginTop="40dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:background="@drawable/boton_bkg"
-                android:padding="15dp"/>
-
+                android:paddingStart="16dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,45 +54,36 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/buscar_bkg"
-            android:padding="16dp"
             android:backgroundTint="@color/green_light_2"
+            android:padding="16dp"
             android:layout_marginBottom="16dp">
 
             <ImageView
-                android:id="@+id/imagen_categoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/producto"
+                android:src="@drawable/existencias"
                 android:layout_gravity="center_horizontal"
-                android:contentDescription="Imagen de material escolar"/>
+                android:contentDescription="Imagen de caja"/>
 
             <TextView
-                android:id="@+id/nombre_categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Material Escolar"
-                android:textColor="@color/black"
+                android:text="Cajas 24*24cm"
                 android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
                 android:gravity="center"
+                android:layout_margin="4dp"
                 android:padding="8dp"/>
 
             <TextView
-                android:id="@+id/informacion_cate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Todo lo que los estudiantes necesitan para el colegio, desde mochilas y estuches hasta lápices de colores, pegamento y reglas."
+                android:textSize="20sp"
+                android:text="Categoría: Cajas\nUnidades: 25\nPrecio: $2.100"
                 android:gravity="center"
+                android:lineSpacingExtra="8dp"
                 android:padding="8dp"/>
-
-            <Button
-                android:id="@+id/VerProductos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ver Productos"
-                android:layout_gravity="center"
-                android:textColor="@color/white"
-                android:background="@drawable/boton_bkg"
-                android:padding="15dp"/>
 
         </LinearLayout>
 
