@@ -78,15 +78,14 @@ public class SecondFragment extends Fragment {
                 .build();
 
         Interapi apiService = retrofit.create(Interapi.class);
-        Call<ProductoResponse> call = apiService.getproducto();
+        Call<List<Dataclass>> call = apiService.getproducto();
 
-        call.enqueue(new Callback<ProductoResponse>() {
+        call.enqueue(new Callback<List<Dataclass>>() {
             @Override
-            public void onResponse(Call<ProductoResponse> call, Response<ProductoResponse> response) {
+            public void onResponse(Call<List<Dataclass>> call, Response<List<Dataclass>> response) {
                 if (response.isSuccessful()) {
-                    ProductoResponse productoResponse = response.body();
-                    if (productoResponse != null && productoResponse.getProductos() != null) {
-                        List<Dataclass> productos = productoResponse.getProductos();
+                    List<Dataclass> productos = response.body();
+                    if (productos != null) {
                         orderList.clear();
                         orderList.addAll(productos);
                         adapter.updateData(orderList);
@@ -100,7 +99,7 @@ public class SecondFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ProductoResponse> call, Throwable t) {
+            public void onFailure(Call<List<Dataclass>> call, Throwable t) {
                 Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

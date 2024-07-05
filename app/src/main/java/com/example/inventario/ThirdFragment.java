@@ -79,15 +79,15 @@ public class ThirdFragment extends Fragment {
                 .build();
 
         Interapi apiService = retrofit.create(Interapi.class);
-        Call<ProductoResponse> call = apiService.getProductosAgotados();
+        Call<ExistenciasResponse> call = apiService.getProductosAgotados();
 
-        call.enqueue(new Callback<ProductoResponse>() {
+        call.enqueue(new Callback<ExistenciasResponse>() {
             @Override
-            public void onResponse(Call<ProductoResponse> call, Response<ProductoResponse> response) {
+            public void onResponse(Call<ExistenciasResponse> call, Response<ExistenciasResponse> response) {
                 if (response.isSuccessful()) {
-                    ProductoResponse productoResponse = response.body();
-                    if (productoResponse != null && productoResponse.getProductos() != null && !productoResponse.getProductos().isEmpty()) {
-                        List<Dataclass> productos = productoResponse.getProductos();
+                    ExistenciasResponse existenciasResponse = response.body();
+                    if (existenciasResponse != null && existenciasResponse.getProductos() != null && !existenciasResponse.getProductos().isEmpty()) {
+                        List<Dataclass> productos = existenciasResponse.getProductos();
                         updateRecyclerView(productos);
                     } else {
                         Log.e("API_RESPONSE", "No se recibieron productos o la lista está vacía");
@@ -98,7 +98,7 @@ public class ThirdFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ProductoResponse> call, Throwable t) {
+            public void onFailure(Call<ExistenciasResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

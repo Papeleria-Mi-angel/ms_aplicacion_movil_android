@@ -1,11 +1,10 @@
 package com.example.inventario;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class ProductoResponse {
-    @SerializedName("body")
+    @SerializedName("productos")
     private List<Dataclass> productos;
 
     public List<Dataclass> getProductos() {
