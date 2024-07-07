@@ -1,10 +1,12 @@
 package com.example.inventario;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -99,12 +101,14 @@ public class Categoria_adapter extends RecyclerView.Adapter<Categoria_adapter.Or
         private ImageView img_categoria;
         private TextView nombre_categoria;
         private TextView info_cate;
+        private Button Ver_Productos;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
             img_categoria = itemView.findViewById(R.id.img_categoria);
             nombre_categoria = itemView.findViewById(R.id.nombre_categoria);
             info_cate = itemView.findViewById(R.id.info_cate);
+            Ver_Productos = itemView.findViewById(R.id.Ver_Productos);
         }
 
         public void bind(final Datacatego categorias, final OnItemClickListener listener) {
@@ -113,6 +117,12 @@ public class Categoria_adapter extends RecyclerView.Adapter<Categoria_adapter.Or
             info_cate.setText(categorias.getDescripcion_categoria());
 
             itemView.setOnClickListener(v -> listener.onItemClick(categorias));
+
+            // Configurar el clic del botón para iniciar la nueva actividad
+            Ver_Productos.setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), Categoria_Producto.class);
+                itemView.getContext().startActivity(intent);
+            });
         }
     }
 }

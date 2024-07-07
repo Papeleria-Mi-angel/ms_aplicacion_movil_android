@@ -68,7 +68,7 @@ public class FirstFragment extends Fragment {
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
-                .addInterceptor(loggingInterceptor) // Agregamos el interceptor de logging
+                .addInterceptor(loggingInterceptor)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
