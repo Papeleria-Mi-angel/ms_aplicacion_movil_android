@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
@@ -14,14 +14,12 @@
         android:orientation="vertical"
         android:background="@drawable/buscar_bkg"
         android:padding="16dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/green_light_2"
-        android:layout_marginBottom="16dp">
+        android:backgroundTint="@color/green_light_2">
 
         <ImageView
             android:id="@+id/img_categoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/existencias"
             android:layout_gravity="center_horizontal"
             android:contentDescription="Imagen de carpetas, cuadernos y libretas"/>
