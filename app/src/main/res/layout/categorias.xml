@@ -12,9 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/buscar_bkg"
         android:padding="16dp"
-        android:backgroundTint="@color/green_light_2">
+        android:background="@color/green_light_2">
 
         <ImageView
             android:id="@+id/img_categoria"
@@ -30,6 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Carpetas, Cuadernos y Libretas"
             android:textStyle="bold"
+            android:textColor="@color/green_dark"
             android:gravity="center"
             android:padding="8dp"/>
 
@@ -37,19 +37,12 @@
             android:id="@+id/info_cate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Una amplia variedad de carpetas, cuadernos, libretas y bloques de notas en diferentes tamaños y diseños. Perfectos para estudiantes, profesionales y creativos."
             android:gravity="center"
             android:padding="8dp"/>
 
-        <Button
-            android:id="@+id/Ver_Productos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver Productos"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:background="@drawable/boton_bkg"
-            android:padding="15dp"/>
+
 
     </LinearLayout>
 

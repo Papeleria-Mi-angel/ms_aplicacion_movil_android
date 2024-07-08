@@ -101,14 +101,14 @@ public class Categoria_adapter extends RecyclerView.Adapter<Categoria_adapter.Or
         private ImageView img_categoria;
         private TextView nombre_categoria;
         private TextView info_cate;
-        private Button Ver_Productos;
+       // private Button Ver_Productos;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
             img_categoria = itemView.findViewById(R.id.img_categoria);
             nombre_categoria = itemView.findViewById(R.id.nombre_categoria);
             info_cate = itemView.findViewById(R.id.info_cate);
-            Ver_Productos = itemView.findViewById(R.id.Ver_Productos);
+            //Ver_Productos = itemView.findViewById(R.id.Ver_Productos);
         }
 
         public void bind(final Datacatego categorias, final OnItemClickListener listener) {
@@ -119,10 +119,10 @@ public class Categoria_adapter extends RecyclerView.Adapter<Categoria_adapter.Or
             itemView.setOnClickListener(v -> listener.onItemClick(categorias));
 
             // Configurar el clic del botón para iniciar la nueva actividad
-            Ver_Productos.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), Categoria_Producto.class);
-                itemView.getContext().startActivity(intent);
-            });
+           // Ver_Productos.setOnClickListener(v -> {
+               // Intent intent = new Intent(itemView.getContext(), Categoria_Producto.class);
+               // itemView.getContext().startActivity(intent);
+           // });
         }
     }
 }
